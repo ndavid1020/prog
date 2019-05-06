@@ -1,0 +1,7 @@
+C:\Users\David\source\repos\NagyDavid_O0U6EC\NagyDavid_O0U6EC\bin\Debug\NagyDavid_O0U6EC.exe.config
+C:\Users\David\source\repos\NagyDavid_O0U6EC\NagyDavid_O0U6EC\bin\Debug\NagyDavid_O0U6EC.exe
+C:\Users\David\source\repos\NagyDavid_O0U6EC\NagyDavid_O0U6EC\bin\Debug\NagyDavid_O0U6EC.pdb
+C:\Users\David\source\repos\NagyDavid_O0U6EC\NagyDavid_O0U6EC\obj\Debug\NagyDavid_O0U6EC.csprojAssemblyReference.cache
+C:\Users\David\source\repos\NagyDavid_O0U6EC\NagyDavid_O0U6EC\obj\Debug\NagyDavid_O0U6EC.csproj.CoreCompileInputs.cache
+C:\Users\David\source\repos\NagyDavid_O0U6EC\NagyDavid_O0U6EC\obj\Debug\NagyDavid_O0U6EC.exe
+C:\Users\David\source\repos\NagyDavid_O0U6EC\NagyDavid_O0U6EC\obj\Debug\NagyDavid_O0U6EC.pdb
