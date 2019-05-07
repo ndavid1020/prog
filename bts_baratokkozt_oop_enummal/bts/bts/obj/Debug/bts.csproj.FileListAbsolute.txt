@@ -1,0 +1,16 @@
+c:\users\hallgató\documents\visual studio 2015\Projects\bts\bts\bin\Debug\bts.exe.config
+c:\users\hallgató\documents\visual studio 2015\Projects\bts\bts\bin\Debug\bts.exe
+c:\users\hallgató\documents\visual studio 2015\Projects\bts\bts\bin\Debug\bts.pdb
+c:\users\hallgató\documents\visual studio 2015\Projects\bts\bts\obj\Debug\bts.csprojResolveAssemblyReference.cache
+c:\users\hallgató\documents\visual studio 2015\Projects\bts\bts\obj\Debug\bts.exe
+c:\users\hallgató\documents\visual studio 2015\Projects\bts\bts\obj\Debug\bts.pdb
+C:\Users\Kovács András\Desktop\bts_baratokkozt_oop_enummal\bts\bts\bin\Debug\bts.exe.config
+C:\Users\Kovács András\Desktop\bts_baratokkozt_oop_enummal\bts\bts\obj\Debug\bts.exe
+C:\Users\Kovács András\Desktop\bts_baratokkozt_oop_enummal\bts\bts\obj\Debug\bts.pdb
+F:\OE-NIK II. Semester\prog2\bts_baratokkozt_oop_enummal\bts\bts\bin\Debug\bts.exe.config
+F:\OE-NIK II. Semester\prog2\bts_baratokkozt_oop_enummal\bts\bts\bin\Debug\bts.exe
+F:\OE-NIK II. Semester\prog2\bts_baratokkozt_oop_enummal\bts\bts\bin\Debug\bts.pdb
+F:\OE-NIK II. Semester\prog2\bts_baratokkozt_oop_enummal\bts\bts\obj\Debug\bts.csprojAssemblyReference.cache
+F:\OE-NIK II. Semester\prog2\bts_baratokkozt_oop_enummal\bts\bts\obj\Debug\bts.csproj.CoreCompileInputs.cache
+F:\OE-NIK II. Semester\prog2\bts_baratokkozt_oop_enummal\bts\bts\obj\Debug\bts.exe
+F:\OE-NIK II. Semester\prog2\bts_baratokkozt_oop_enummal\bts\bts\obj\Debug\bts.pdb

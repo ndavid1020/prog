@@ -1,0 +1,6 @@
+c:\Users\hallgató\documents\visual studio 2015\Projects\bts\enumTest\bin\Debug\enumTest.exe.config
+c:\Users\hallgató\documents\visual studio 2015\Projects\bts\enumTest\bin\Debug\enumTest.exe
+c:\Users\hallgató\documents\visual studio 2015\Projects\bts\enumTest\bin\Debug\enumTest.pdb
+c:\Users\hallgató\documents\visual studio 2015\Projects\bts\enumTest\obj\Debug\enumTest.csprojResolveAssemblyReference.cache
+c:\Users\hallgató\documents\visual studio 2015\Projects\bts\enumTest\obj\Debug\enumTest.exe
+c:\Users\hallgató\documents\visual studio 2015\Projects\bts\enumTest\obj\Debug\enumTest.pdb
