@@ -60,11 +60,37 @@ namespace NagyDavid_O0U6EC
             ///Teszt raktár
             raktar[0] = new Alma("kg", 0);
             raktar[1] = new Barack("kg", 1);
-            raktar[2] = new Buza("kg", 1);
+            raktar[2] = new Buza("kg", 3);
             raktar[4] = new Szena("kg", 1);
             raktar[3] = new Birka("kg", 1);
             raktar[5] = new Marha("kg", 1);
 
+            int ossz = 0;
+            for (int i = 0; i < raktar.Length; i++)
+            {
+                ossz += raktar[i].Mennyiseg;
+            }
+
+            string[] eroforrasok = new string[ossz];
+
+            int darab = 0;
+            int j = 0;
+            for (int i = 0; i < raktar.Length; i++)
+            {
+                darab = 0;
+                while(darab != raktar[i].Mennyiseg)
+                {
+                    darab++;
+                    eroforrasok[j] = raktar[i].Tipus;
+                    j++;
+                }
+            }
+            Console.WriteLine();
+            for (int i = 0; i < eroforrasok.Length; i++)
+            {
+                Console.Write(eroforrasok[i]+" ");
+            }
+            Console.WriteLine();
 
             string[] arryn = { "Alma", "Barack" };
             string[] greyjoy = { "Buza", "Alma" };
@@ -108,13 +134,6 @@ namespace NagyDavid_O0U6EC
 
             BinarisKeresofa<LancoltLista<Termek>> hazak = new BinarisKeresofa<LancoltLista<Termek>>();
 
-            Console.WriteLine("Elosztás! El kellene osztani a dolgokat");
-            Console.WriteLine("");
-
-            
-
-
-            Console.WriteLine();
 
             hazak.Add(Arryn);
             hazak.Add(Greyjoy);
@@ -146,9 +165,9 @@ namespace NagyDavid_O0U6EC
 
             //Backtrack
 
-            Termek[,] R = new Termek[6, 2];
+            string[,] R = new string[6, eroforrasok.Length];
 
-            // Arryn haz
+           /* // Arryn haz
             R[0, 0] = new Termek() { Tipus = "Alma" };
             R[0, 1] = new Termek() { Tipus = "Barack" };
 
@@ -171,36 +190,38 @@ namespace NagyDavid_O0U6EC
             // 6. haz
             R[5, 0] = new Termek() { Tipus = "Buza" };
             R[5, 1] = new Termek() { Tipus = "Alma" };
+            */
+            for (int i = 0; i < R.GetLength(0); i++)
+            {
+                for (int k = 0; k < R.GetLength(1); k++)
+                {
+                    R[i, k] = eroforrasok[k];
+                }
+            }
 
 
             ///Alma, Barack, Marha, Birka, Széna, Búza
-            bool[,] J =
-                {
-                {true,true,false,false,false,false},
-                {false,true,true,false,false,false},
-                {false,false,true,true,false,false},
-                {false,false,false,true,true,false},
-                {false,false,false,false,true,true},
-                {true,false,true,false,false,true}
-                };
 
-            int[] M = { 1, 1, 1, 1, 1, 1};
+            int[] M = new int[R.GetLength(0)];
 
-            Termek[] E = new Termek[6];
+            for (int i = 0; i < M.Length; i++)
+            {
+                M[i] = eroforrasok.Length-1;
+            }
+
+            string[] E = new string[eroforrasok.Length];
 
             bool van = false;
 
-            BTS(0, ref E, ref van, M, R, raktar, J);
+
+
+            BTS(0, ref E, ref van, M, R, raktar);
             //osszesLehetoseg(R, raktar, hazaktomb);
             if (van)
             {
                 for (int i = 0; i < E.Length; i++)
                 {
-                    Console.WriteLine(
-                        "EMBER: {0}",
-
-                        E[i].Tipus
-                        );
+                    Console.WriteLine(E[i]);
                 }
             }
             else
@@ -238,68 +259,67 @@ namespace NagyDavid_O0U6EC
         }*/
 
         
-        static void BTS(int szint, ref Termek[] E, ref bool van, int[] M, Termek[,] R, Termek[] raktar, bool[,] J)
+        static void BTS(int szint, ref string[] E, ref bool van, int[] M, string[,] R, Termek[] raktar)
         {
             int i = -1;
             while (!van && i < M[szint])
             {
                 i++;
-                if (Ft(szint, R[szint, i], raktar, J)) 
+                if (Ft(szint, R[szint, i])) 
                 {
                     if (Fk(E, szint, R[szint, i], raktar))
                     {
                         E[szint] = R[szint, i];
+                        
                         if (szint == R.GetLength(0) - 1)
                         {
                             van = true;
                         }
                         else
                         {
-                            BTS(szint + 1, ref E, ref van, M, R, raktar, J);
+                            BTS(szint + 1, ref E, ref van, M, R, raktar);
+                            
                         }
                     }
                 }
             }
         }
 
-        static bool Ft(int szint, Termek r, Termek[] raktar, bool[,] J)
+        static bool Ft(int szint, string r) //Feltétel
         {
-            switch(r.Tipus)
-            {
-                case ("Alma"):
-                    return J[szint, 0];
-                case ("Barack"):
-                    return J[szint, 1];
-                case ("Marha"):
-                    return J[szint, 2];
-                case ("Birka"):
-                    return J[szint, 3];
-                case ("Szena"):
-                    return J[szint, 4];
-                case ("Buza"):
-                    return J[szint, 5];
-            }
-            return false;
+            return true;
         }
 
-        static bool Fk(Termek[] E, int szint, Termek r, Termek[] raktar)
+        static bool Fk(string[] eredmenyek, int szint, string xEmber, Termek [] raktar) //Feltétel
         {
-            int db = 0;
-            int i = 0;
-            while(i<szint && db<mennyiraktar(r,raktar)) {
-                if(E[i] == r)
+            int j = 0;
+            for (int i = 0; i < eredmenyek.Length; i++)
+            {
+                j = 0;
+                while (eredmenyek[i] != raktar[j].Tipus && j < raktar.Length-1)
                 {
-                    db++;
+                    j++;
                 }
-                i++;
+                if (eredmenyek[i] == raktar[j].Tipus)
+                {
+                    if (raktar[j].Mennyiseg <= 0)
+                    {
+                        return false;
+                    }
+                }
+                   
             }
-            return db < mennyiraktar(r, raktar);
-            /*
-            for (int i = 0; i < szint; i++)
-                if (eredmenyek[i].Tipus == xTermek.Tipus )
-                    return false;
-            */
+
+            raktar[j].Mennyiseg--;
+            return true;
         }
+
+        /*
+        for (int i = 0; i < szint; i++)
+            if (eredmenyek[i].Tipus == xTermek.Tipus )
+                return false;
+        */
+    }
         /*
         static void osszesLehetoseg(Termek[] raktar, LancoltLista<Termek>[] hazaktomb)
         {
@@ -319,7 +339,7 @@ namespace NagyDavid_O0U6EC
             }
         }
         */
-        static bool hazDone(LancoltLista<Termek> haz)
+        /*static bool hazDone(LancoltLista<Termek> haz)
         {
             int db = 0;
             foreach(var elem in haz)
@@ -381,8 +401,7 @@ namespace NagyDavid_O0U6EC
                 }
             }
             return 0;
-        }
+        }*/
 
 
     }
-}
