@@ -89,7 +89,8 @@ namespace NagyDavid_O0U6EC
                 {
                     PrivateAdd(ref p.right, val);
                 }
-                else if (be < elem)
+                else if (be <=
+                elem)
                 {
                     PrivateAdd(ref p.left, val);
                 }
