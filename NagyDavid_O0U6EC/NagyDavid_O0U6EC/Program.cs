@@ -58,7 +58,7 @@ namespace NagyDavid_O0U6EC
             }
             */
             ///Teszt raktár
-            raktar[0] = new Alma("kg", 4);
+            raktar[0] = new Alma("kg", 3);
             raktar[1] = new Barack("kg", 5);
             raktar[2] = new Buza("kg", 2);
             raktar[4] = new Szena("kg", 1);
@@ -378,8 +378,23 @@ namespace NagyDavid_O0U6EC
                 }
                 k++;
             }
+
+            bool van = true;
+            foreach (var item in hazak.CustomOrder(walk_style.preorder))
+            {
+                if (item.prefmenny > 0)
+                {
+                    van = false;
+                }
+            }
+
             Console.WriteLine();
             Console.WriteLine("EREDMÉNY KEZDETE");
+            Console.WriteLine();
+            if (van)
+                Console.WriteLine("VAN MEGOLDÁS");
+            else
+                Console.WriteLine("NINCS MEGOLDÁS");
             Console.WriteLine();
             for (int i = 0; i < termekek.Length; i++)
             {
@@ -418,11 +433,6 @@ namespace NagyDavid_O0U6EC
             {
                 Console.Write(termekek[j] + " ");
             }
-
-
-
-            
-
         }
     }
 
