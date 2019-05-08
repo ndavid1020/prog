@@ -83,8 +83,8 @@ namespace NagyDavid_O0U6EC
             }
             else
             {
-                int elem = p.value.meret;
-                int be = val.meret;
+                int elem = p.value.preferencia.Length;
+                int be = val.preferencia.Length;
                 if (be > elem)
                 {
                     PrivateAdd(ref p.right, val);

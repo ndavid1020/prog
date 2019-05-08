@@ -58,10 +58,10 @@ namespace NagyDavid_O0U6EC
             }
             */
             ///Teszt raktár
-            raktar[0] = new Alma("kg", 70);
-            raktar[1] = new Barack("kg", 65);
-            raktar[2] = new Buza("kg", 40);
-            raktar[4] = new Szena("kg", 10);
+            raktar[0] = new Alma("kg", 4);
+            raktar[1] = new Barack("kg", 5);
+            raktar[2] = new Buza("kg", 2);
+            raktar[4] = new Szena("kg", 1);
             raktar[3] = new Birka("kg", 7);
             raktar[5] = new Marha("kg", 20);
 
@@ -116,10 +116,10 @@ namespace NagyDavid_O0U6EC
             Console.WriteLine();
 
 
-            string[] arryn = { "Alma", "Barack" };
-            string[] greyjoy = { "Buza", "Alma" };
-            string[] lannister = { "Birka", "Szena" };
-            string[] stark = { "Alma", "Buza" };
+            string[] arryn = { "Alma", "Szena" };
+            string[] greyjoy = { "Barack", "Szena" };
+            string[] lannister = { "Szena", "Buza", "Alma" };
+            string[] stark = { "Buza" };
             string[] targaryen = { "Barack", "Szena" };
             string[] tully = { "Birka", "Marha" };
 
@@ -236,17 +236,18 @@ namespace NagyDavid_O0U6EC
 
             
 
-            LancoltLista<Termek> Arryn = new LancoltLista<Termek>(arryn, 20, "Arryn");
-            LancoltLista<Termek> Greyjoy = new LancoltLista<Termek>(greyjoy, 16, "Greyjoy");
-            LancoltLista<Termek> Lannister = new LancoltLista<Termek>(lannister, 7, "Lannister");
-            LancoltLista<Termek> Stark = new LancoltLista<Termek>(stark, 28, "Stark");
-            LancoltLista<Termek> Targaryen = new LancoltLista<Termek>(targaryen, 10, "Targaryen");
-            LancoltLista<Termek> Tully = new LancoltLista<Termek>(tully, 13, "Tully");
+            LancoltLista<Termek> Arryn = new LancoltLista<Termek>(arryn, 4, "Arryn");
+            LancoltLista<Termek> Greyjoy = new LancoltLista<Termek>(greyjoy, 3, "Greyjoy");
+            LancoltLista<Termek> Lannister = new LancoltLista<Termek>(lannister, 2, "Lannister");
+            LancoltLista<Termek> Stark = new LancoltLista<Termek>(stark, 1, "Stark");
+            LancoltLista<Termek> Targaryen = new LancoltLista<Termek>(targaryen, 0, "Targaryen");
+            LancoltLista<Termek> Tully = new LancoltLista<Termek>(tully, 0, "Tully");
 
             
 
             Arryn.ElejereBeszuras(new Alma("kg", 0));
             Arryn.ElejereBeszuras(new Barack("kg", 0));
+            Arryn.ElejereBeszuras(new Szena("kg", 0));
             Greyjoy.ElejereBeszuras(new Barack("kg", 0));
             Greyjoy.ElejereBeszuras(new Birka("kg", 0));
             Lannister.ElejereBeszuras(new Birka("kg", 0));
@@ -300,14 +301,14 @@ namespace NagyDavid_O0U6EC
         }
 
 
-        public static void Egykioszt(Termek [] raktar, BinarisKeresofa<LancoltLista<Termek>> hazak, int []gyakorisagok, string [] termekek, bool[,] viszony)
+        public static void Egykioszt(Termek[] raktar, BinarisKeresofa<LancoltLista<Termek>> hazak, int[] gyakorisagok, string[] termekek, bool[,] viszony)
         {
             Console.WriteLine();
             Console.WriteLine("METÓDUS");
             Console.WriteLine();
-            for (int i = 0; i < gyakorisagok.Length-1; i++)
+            for (int i = 0; i < gyakorisagok.Length - 1; i++)
             {
-                for (int j = i+1; j < gyakorisagok.Length; j++)
+                for (int j = i + 1; j < gyakorisagok.Length; j++)
                 {
                     if (gyakorisagok[i] > gyakorisagok[j])
                     {
@@ -328,15 +329,15 @@ namespace NagyDavid_O0U6EC
                 for (int j = 0; j < viszony.GetLength(1); j++)
                 {
                     c = 0;
-                    foreach(var a in item)
+                    foreach (var a in item.preferencia)
                     {
-                        if (item.preferencia[c] == termekek[j])
+                        if (a == termekek[j])
                         {
                             viszony[k, j] = true;
                         }
                         c++;
                     }
-                   
+
                 }
                 k++;
             }
@@ -357,15 +358,16 @@ namespace NagyDavid_O0U6EC
             {
                 for (int j = 0; j < viszony.GetLength(1); j++)
                 {
-                    if (viszony[k,j] == true)
+                    if (viszony[k, j] == true)
                     {
                         s = 0;
-                        while(termekek[j] != raktar[s].Tipus)
+                        while (termekek[j] != raktar[s].Tipus)
                         {
                             s++;
                         }
                         while (raktar[s].Mennyiseg > 0 && item.prefmenny > 0)
                         {
+                            Console.Write(termekek[j]+" ");
                             raktar[s].Mennyiseg--;
                             item.prefmenny--;
                             tomb[k, j]++;
@@ -379,13 +381,21 @@ namespace NagyDavid_O0U6EC
             Console.WriteLine();
             Console.WriteLine("EREDMÉNY KEZDETE");
             Console.WriteLine();
-            for (int i = 0; i < tomb.GetLength(0); i++)
+            for (int i = 0; i < termekek.Length; i++)
             {
+                Console.Write(termekek[i] + " ");
+            }
+            Console.WriteLine();
+            int h = 0;
+            foreach (var item in hazak.CustomOrder(walk_style.preorder))
+            {
+                Console.Write(item.nev+ " ");
                 for (int j = 0; j < tomb.GetLength(1); j++)
                 {
-                    Console.Write(tomb[i,j]+" ");
+                    Console.Write(tomb[h, j] + " ");
                 }
-                Console.WriteLine();
+                h++;
+            Console.WriteLine();
             }
             Console.WriteLine();
             Console.WriteLine("EREDMÉNY VÉGE");
