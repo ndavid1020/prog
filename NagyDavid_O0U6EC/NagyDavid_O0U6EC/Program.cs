@@ -324,7 +324,7 @@ namespace NagyDavid_O0U6EC
 
             int k = 0;
             int c = 0;
-            foreach (var item in hazak.CustomOrder(walk_style.preorder))
+            foreach (var item in hazak.CustomOrder(walk_style.inorder))
             {
                 for (int j = 0; j < viszony.GetLength(1); j++)
                 {
@@ -354,7 +354,7 @@ namespace NagyDavid_O0U6EC
             };
 
             int s = 0;
-            foreach (var item in hazak.CustomOrder(walk_style.preorder))
+            foreach (var item in hazak.CustomOrder(walk_style.inorder))
             {
                 for (int j = 0; j < viszony.GetLength(1); j++)
                 {
@@ -380,7 +380,7 @@ namespace NagyDavid_O0U6EC
             }
 
             bool van = true;
-            foreach (var item in hazak.CustomOrder(walk_style.preorder))
+            foreach (var item in hazak.CustomOrder(walk_style.inorder))
             {
                 if (item.prefmenny > 0)
                 {
@@ -402,7 +402,7 @@ namespace NagyDavid_O0U6EC
             }
             Console.WriteLine();
             int h = 0;
-            foreach (var item in hazak.CustomOrder(walk_style.preorder))
+            foreach (var item in hazak.CustomOrder(walk_style.inorder))
             {
                 Console.Write(item.nev+ " ");
                 for (int j = 0; j < tomb.GetLength(1); j++)
