@@ -18,9 +18,11 @@ namespace NagyDavid_O0U6EC
         public int meret { get; set; }
         public string[] preferencia { get; set; }
         public int prefmenny { get; set; }
-        public LancoltLista(string []pref, int menny)
+        public string nev { get; set; }
+        public LancoltLista(string []pref, int menny, string nev)
         {
             prefmenny = menny;
+            this.nev = nev;
             preferencia = pref;
             this.meret = 0;
         }

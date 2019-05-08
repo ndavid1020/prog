@@ -58,12 +58,12 @@ namespace NagyDavid_O0U6EC
             }
             */
             ///Teszt raktár
-            raktar[0] = new Alma("kg", 0);
-            raktar[1] = new Barack("kg", 1);
-            raktar[2] = new Buza("kg", 3);
-            raktar[4] = new Szena("kg", 1);
-            raktar[3] = new Birka("kg", 1);
-            raktar[5] = new Marha("kg", 1);
+            raktar[0] = new Alma("kg", 70);
+            raktar[1] = new Barack("kg", 65);
+            raktar[2] = new Buza("kg", 40);
+            raktar[4] = new Szena("kg", 10);
+            raktar[3] = new Birka("kg", 7);
+            raktar[5] = new Marha("kg", 20);
 
             int ossz = 0;
             for (int i = 0; i < raktar.Length; i++)
@@ -85,12 +85,36 @@ namespace NagyDavid_O0U6EC
                     j++;
                 }
             }
+
             Console.WriteLine();
             for (int i = 0; i < eroforrasok.Length; i++)
             {
                 Console.Write(eroforrasok[i]+" ");
             }
+
+
+            
+
             Console.WriteLine();
+            for (int i = 0; i < eroforrasok.Length; i++)
+            {
+                Console.Write(eroforrasok[i] + " ");
+            }
+
+            Console.WriteLine();
+
+            int[] mennyi = new int[raktar.Length];
+            for (int i = 0; i < raktar.Length; i++)
+            {
+                mennyi[i] = raktar[i].Mennyiseg;
+            }
+
+            for (int i = 0; i < mennyi.Length; i++)
+            {
+                Console.Write(mennyi[i] + " ");
+            }
+            Console.WriteLine();
+
 
             string[] arryn = { "Alma", "Barack" };
             string[] greyjoy = { "Buza", "Alma" };
@@ -99,14 +123,128 @@ namespace NagyDavid_O0U6EC
             string[] targaryen = { "Barack", "Szena" };
             string[] tully = { "Birka", "Marha" };
 
+            bool[,] viszony =
+            {
+                {false,false,false,false,false,false },
+                {false,false,false,false,false,false },
+                {false,false,false,false,false,false },
+                {false,false,false,false,false,false },
+                {false,false,false,false,false,false },
+                {false,false,false,false,false,false }
+                
+            };
 
-            LancoltLista<Termek> Arryn = new LancoltLista<Termek>(arryn, 5);
-            LancoltLista<Termek> Greyjoy = new LancoltLista<Termek>(greyjoy, 7);
-            LancoltLista<Termek> Lannister = new LancoltLista<Termek>(lannister, 10);
-            LancoltLista<Termek> Stark = new LancoltLista<Termek>(stark, 4);
-            LancoltLista<Termek> Targaryen = new LancoltLista<Termek>(targaryen, 6);
-            LancoltLista<Termek> Tully = new LancoltLista<Termek>(tully, 2);
+            int almagyak = 0;
+            int barackgyak = 0;
+            int buzagyak = 0;
+            int birkagyak = 0;
+            int szenagyak = 0;
+            int marhagyak = 0;
+            for (int i = 0; i < arryn.Length; i++)
+            {
+                if (arryn[i] == "Alma")
+                    almagyak++;
+                if (arryn[i] == "Barack")
+                    barackgyak++;
+                if (arryn[i] == "Buza")
+                    buzagyak++;
+                if (arryn[i] == "Birka")
+                    birkagyak++;
+                if (arryn[i] == "Szena")
+                    szenagyak++;
+                if (arryn[i] == "Marha")
+                    marhagyak++;
+            }
+            for (int i = 0; i < greyjoy.Length; i++)
+            {
+                if (greyjoy[i] == "Alma")
+                    almagyak++;
+                if (greyjoy[i] == "Barack")
+                    barackgyak++;
+                if (greyjoy[i] == "Buza")
+                    buzagyak++;
+                if (greyjoy[i] == "Birka")
+                    birkagyak++;
+                if (greyjoy[i] == "Szena")
+                    szenagyak++;
+                if (greyjoy[i] == "Marha")
+                    marhagyak++;
+            }
+            for (int i = 0; i < lannister.Length; i++)
+            {
+                if (lannister[i] == "Alma")
+                    almagyak++;
+                if (lannister[i] == "Barack")
+                    barackgyak++;
+                if (lannister[i] == "Buza")
+                    buzagyak++;
+                if (lannister[i] == "Birka")
+                    birkagyak++;
+                if (lannister[i] == "Szena")
+                    szenagyak++;
+                if (lannister[i] == "Marha")
+                    marhagyak++;
+            }
+            for (int i = 0; i < stark.Length; i++)
+            {
+                if (stark[i] == "Alma")
+                    almagyak++;
+                if (stark[i] == "Barack")
+                    barackgyak++;
+                if (stark[i] == "Buza")
+                    buzagyak++;
+                if (stark[i] == "Birka")
+                    birkagyak++;
+                if (stark[i] == "Szena")
+                    szenagyak++;
+                if (stark[i] == "Marha")
+                    marhagyak++;
+            }
+            for (int i = 0; i < targaryen.Length; i++)
+            {
+                if (targaryen[i] == "Alma")
+                    almagyak++;
+                if (targaryen[i] == "Barack")
+                    barackgyak++;
+                if (targaryen[i] == "Buza")
+                    buzagyak++;
+                if (targaryen[i] == "Birka")
+                    birkagyak++;
+                if (targaryen[i] == "Szena")
+                    szenagyak++;
+                if (targaryen[i] == "Marha")
+                    marhagyak++;
+            }
+            for (int i = 0; i < tully.Length; i++)
+            {
+                if (tully[i] == "Alma")
+                    almagyak++;
+                if (tully[i] == "Barack")
+                    barackgyak++;
+                if (tully[i] == "Buza")
+                    buzagyak++;
+                if (tully[i] == "Birka")
+                    birkagyak++;
+                if (tully[i] == "Szena")
+                    szenagyak++;
+                if (tully[i] == "Marha")
+                    marhagyak++;
+            }
+
+            int[] gyakorisagok = { almagyak, barackgyak, buzagyak, birkagyak, szenagyak, marhagyak };
+            string[] termekek = { "Alma", "Barack", "Buza", "Birka", "Szena", "Marha" };
+
             
+
+            LancoltLista<Termek> Arryn = new LancoltLista<Termek>(arryn, 20, "Arryn");
+            LancoltLista<Termek> Greyjoy = new LancoltLista<Termek>(greyjoy, 16, "Greyjoy");
+            LancoltLista<Termek> Lannister = new LancoltLista<Termek>(lannister, 7, "Lannister");
+            LancoltLista<Termek> Stark = new LancoltLista<Termek>(stark, 28, "Stark");
+            LancoltLista<Termek> Targaryen = new LancoltLista<Termek>(targaryen, 10, "Targaryen");
+            LancoltLista<Termek> Tully = new LancoltLista<Termek>(tully, 13, "Tully");
+
+            
+
             Arryn.ElejereBeszuras(new Alma("kg", 0));
             Arryn.ElejereBeszuras(new Barack("kg", 0));
             Greyjoy.ElejereBeszuras(new Barack("kg", 0));
@@ -144,264 +282,230 @@ namespace NagyDavid_O0U6EC
 
             //Kiosztas(raktar, hazak);
 
-            Console.WriteLine();
-            foreach (var item in hazak.CustomOrder(walk_style.inorder))
+            for (int i = 0; i < viszony.GetLength(0); i++)
             {
+                for (int o = 0; o < viszony.GetLength(1); o++)
+                {
+                    Console.Write(viszony[i,o]+" ");
+                }
                 Console.WriteLine();
-                foreach (var a in item)
-                {
-                    Console.WriteLine(a);
-                }
             }
 
-            Console.WriteLine();
-            Console.WriteLine("RAKTÁR!!!");
-            Console.WriteLine();
-            foreach (var item in raktar)
-            {
-                Console.WriteLine(item);
-            }
+            //prefmennyek
 
+            int[] prefmennyek = { 5, 7, 10, 4, 6, 2 };
 
-            //Backtrack
-
-            string[,] R = new string[6, eroforrasok.Length];
-
-           /* // Arryn haz
-            R[0, 0] = new Termek() { Tipus = "Alma" };
-            R[0, 1] = new Termek() { Tipus = "Barack" };
-
-            // Greyjoy
-            R[1, 0] = new Termek() { Tipus = "Barack" };
-            R[1, 1] = new Termek() { Tipus = "Marha" };
-
-            // Stark
-            R[2, 0] = new Termek() { Tipus = "Marha" };
-            R[2, 1] = new Termek() { Tipus = "Birka" };
-
-            // 4. haz
-            R[3, 0] = new Termek() { Tipus = "Birka" };
-            R[3, 1] = new Termek() { Tipus = "Szena" };
-
-            // 5. haz
-            R[4, 0] = new Termek() { Tipus = "Szena" };
-            R[4, 1] = new Termek() { Tipus = "Buza" };
-
-            // 6. haz
-            R[5, 0] = new Termek() { Tipus = "Buza" };
-            R[5, 1] = new Termek() { Tipus = "Alma" };
-            */
-            for (int i = 0; i < R.GetLength(0); i++)
-            {
-                for (int k = 0; k < R.GetLength(1); k++)
-                {
-                    R[i, k] = eroforrasok[k];
-                }
-            }
-
-
-            ///Alma, Barack, Marha, Birka, Széna, Búza
-
-            int[] M = new int[R.GetLength(0)];
-
-            for (int i = 0; i < M.Length; i++)
-            {
-                M[i] = eroforrasok.Length-1;
-            }
-
-            string[] E = new string[eroforrasok.Length];
-
-            bool van = false;
-
-
-
-            BTS(0, ref E, ref van, M, R, raktar);
-            //osszesLehetoseg(R, raktar, hazaktomb);
-            if (van)
-            {
-                for (int i = 0; i < E.Length; i++)
-                {
-                    Console.WriteLine(E[i]);
-                }
-            }
-            else
-            {
-                Console.WriteLine("Nincs Megoldas");
-            }
-            
-
+            Egykioszt(raktar, hazak, gyakorisagok, termekek, viszony);
             Console.Read();
         }
 
-        /*public static void Kiosztas(Termek[] raktar, BinarisKeresofa<LancoltLista<Termek>> hazak)
+
+        public static void Egykioszt(Termek [] raktar, BinarisKeresofa<LancoltLista<Termek>> hazak, int []gyakorisagok, string [] termekek, bool[,] viszony)
         {
+            Console.WriteLine();
+            Console.WriteLine("METÓDUS");
+            Console.WriteLine();
+            for (int i = 0; i < gyakorisagok.Length-1; i++)
+            {
+                for (int j = i+1; j < gyakorisagok.Length; j++)
+                {
+                    if (gyakorisagok[i] > gyakorisagok[j])
+                    {
+                        int csere = gyakorisagok[j];
+                        gyakorisagok[j] = gyakorisagok[i];
+                        gyakorisagok[i] = csere;
+                        string swap = termekek[j];
+                        termekek[j] = termekek[i];
+                        termekek[i] = swap;
+                    }
+                }
+            }
+
+            int k = 0;
+            int c = 0;
             foreach (var item in hazak.CustomOrder(walk_style.preorder))
             {
-                for (int i = 0; i < item.preferencia.Length; i++)
+                for (int j = 0; j < viszony.GetLength(1); j++)
                 {
-                    if (item.prefmenny > 0)
+                    c = 0;
+                    foreach(var a in item)
                     {
-                        int j = 0;
-
-                        while ((raktar[j] as Termek).Tipus == item.preferencia[i] && item.prefmenny > 0 && (raktar[j] as Termek).Mennyiseg > 0 && j < raktar.Length)
+                        if (item.preferencia[c] == termekek[j])
                         {
-                            item.ElejereBeszuras(raktar[j]);
-                            item.prefmenny--;
-                            (raktar[j] as Termek).Mennyiseg--;
-
+                            viszony[k, j] = true;
                         }
+                        c++;
                     }
-                    
-                }
-               Console.WriteLine("Ennyiszer");
-            }
-            
-        }*/
-
-        
-        static void BTS(int szint, ref string[] E, ref bool van, int[] M, string[,] R, Termek[] raktar)
-        {
-            int i = -1;
-            while (!van && i < M[szint])
-            {
-                i++;
-                if (Ft(szint, R[szint, i])) 
-                {
-                    if (Fk(E, szint, R[szint, i], raktar))
-                    {
-                        E[szint] = R[szint, i];
-                        
-                        if (szint == R.GetLength(0) - 1)
-                        {
-                            van = true;
-                        }
-                        else
-                        {
-                            BTS(szint + 1, ref E, ref van, M, R, raktar);
-                            
-                        }
-                    }
-                }
-            }
-        }
-
-        static bool Ft(int szint, string r) //Feltétel
-        {
-            return true;
-        }
-
-        static bool Fk(string[] eredmenyek, int szint, string xEmber, Termek [] raktar) //Feltétel
-        {
-            int j = 0;
-            for (int i = 0; i < eredmenyek.Length; i++)
-            {
-                j = 0;
-                while (eredmenyek[i] != raktar[j].Tipus && j < raktar.Length-1)
-                {
-                    j++;
-                }
-                if (eredmenyek[i] == raktar[j].Tipus)
-                {
-                    if (raktar[j].Mennyiseg <= 0)
-                    {
-                        return false;
-                    }
-                }
                    
+                }
+                k++;
             }
 
-            raktar[j].Mennyiseg--;
-            return true;
-        }
+            k = 0;
+            int[,] tomb =
+            {
+                {0,0,0,0,0,0 },
+                {0,0,0,0,0,0 },
+                {0,0,0,0,0,0 },
+                {0,0,0,0,0,0 },
+                {0,0,0,0,0,0 },
+                {0,0,0,0,0,0 }
+            };
 
-        /*
-        for (int i = 0; i < szint; i++)
-            if (eredmenyek[i].Tipus == xTermek.Tipus )
-                return false;
-        */
-    }
-        /*
-        static void osszesLehetoseg(Termek[] raktar, LancoltLista<Termek>[] hazaktomb)
-        {
-            for(int i=0; i<hazaktomb.Length; i++)
+            int s = 0;
+            foreach (var item in hazak.CustomOrder(walk_style.preorder))
             {
-                for(int j=0; j<hazaktomb[i].meret; j++)
+                for (int j = 0; j < viszony.GetLength(1); j++)
                 {
-                    switch(hazaktomb[i].ElementAt(j).Tipus)
+                    if (viszony[k,j] == true)
                     {
-                        case "Alma":
-                            if(raktar[0] >= 1)
-                            {
-                                hazaktomb[i]
-                            }
-                    }
-                }
-            }
-        }
-        */
-        /*static bool hazDone(LancoltLista<Termek> haz)
-        {
-            int db = 0;
-            foreach(var elem in haz)
-            {
-                db += elem.Mennyiseg;
-            }
-            if(haz.prefmenny == db)
-            {
-                return true;
-            }
-            return false;
-        }
-        static bool hazakDone(LancoltLista<Termek>[] hazak)
-        {
-            foreach(var elem in hazak)
-            {
-                if(!hazDone(elem))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-        static void hozzaad(LancoltLista<Termek> haz, Termek termek, Termek[] raktar)
-        {
-            foreach(var item in haz)
-            {
-                if(item.Tipus == termek.Tipus)
-                {
-                    foreach(var rak in raktar)
-                    {
-                        if(rak.Tipus == termek.Tipus)
+                        s = 0;
+                        while(termekek[j] != raktar[s].Tipus)
                         {
-                            rak.Mennyiseg--;
-                            item.Mennyiseg++;
+                            s++;
                         }
+                        while (raktar[s].Mennyiseg > 0 && item.prefmenny > 0)
+                        {
+                            raktar[s].Mennyiseg--;
+                            item.prefmenny--;
+                            tomb[k, j]++;
+                        }
+
+                    }
+
+                }
+                k++;
+            }
+            Console.WriteLine();
+            Console.WriteLine("EREDMÉNY KEZDETE");
+            Console.WriteLine();
+            for (int i = 0; i < tomb.GetLength(0); i++)
+            {
+                for (int j = 0; j < tomb.GetLength(1); j++)
+                {
+                    Console.Write(tomb[i,j]+" ");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+            Console.WriteLine("EREDMÉNY VÉGE");
+            Console.WriteLine();
+            for (int i = 0; i < viszony.GetLength(0); i++)
+            {
+                for (int j = 0; j < viszony.GetLength(1); j++)
+                {
+                    Console.Write(viszony[i,j]+" ");
+                }
+                Console.WriteLine();
+            }
+
+            for (int i = 0; i < gyakorisagok.Length; i++)
+            {
+                Console.Write(gyakorisagok[i]+" ");
+            }
+            Console.WriteLine();
+            for (int j = 0; j < termekek.Length; j++)
+            {
+                Console.Write(termekek[j] + " ");
+            }
+
+
+
+            
+
+        }
+    }
+
+    /*
+    for (int i = 0; i < szint; i++)
+        if (eredmenyek[i].Tipus == xTermek.Tipus )
+            return false;
+    */
+
+    /*
+    static void osszesLehetoseg(Termek[] raktar, LancoltLista<Termek>[] hazaktomb)
+    {
+        for(int i=0; i<hazaktomb.Length; i++)
+        {
+            for(int j=0; j<hazaktomb[i].meret; j++)
+            {
+                switch(hazaktomb[i].ElementAt(j).Tipus)
+                {
+                    case "Alma":
+                        if(raktar[0] >= 1)
+                        {
+                            hazaktomb[i]
+                        }
+                }
+            }
+        }
+    }
+    */
+    /*static bool hazDone(LancoltLista<Termek> haz)
+    {
+        int db = 0;
+        foreach(var elem in haz)
+        {
+            db += elem.Mennyiseg;
+        }
+        if(haz.prefmenny == db)
+        {
+            return true;
+        }
+        return false;
+    }
+    static bool hazakDone(LancoltLista<Termek>[] hazak)
+    {
+        foreach(var elem in hazak)
+        {
+            if(!hazDone(elem))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    static void hozzaad(LancoltLista<Termek> haz, Termek termek, Termek[] raktar)
+    {
+        foreach(var item in haz)
+        {
+            if(item.Tipus == termek.Tipus)
+            {
+                foreach(var rak in raktar)
+                {
+                    if(rak.Tipus == termek.Tipus)
+                    {
+                        rak.Mennyiseg--;
+                        item.Mennyiseg++;
                     }
                 }
             }
         }
-        static bool vaneraktaron(Termek termek, Termek[] raktar)
-        {
-            foreach(var item in raktar)
-            {
-                if(item.Tipus == termek.Tipus)
-                {
-                    return item.Mennyiseg >= 1;
-                }
-            }
-            return false;
-        }
-        static int mennyiraktar(Termek termek, Termek[] raktar)
-        {
-            foreach (var item in raktar)
-            {
-                if (item.Tipus == termek.Tipus)
-                {
-                    return item.Mennyiseg;
-                }
-            }
-            return 0;
-        }*/
-
-
     }
+    static bool vaneraktaron(Termek termek, Termek[] raktar)
+    {
+        foreach(var item in raktar)
+        {
+            if(item.Tipus == termek.Tipus)
+            {
+                return item.Mennyiseg >= 1;
+            }
+        }
+        return false;
+    }
+    static int mennyiraktar(Termek termek, Termek[] raktar)
+    {
+        foreach (var item in raktar)
+        {
+            if (item.Tipus == termek.Tipus)
+            {
+                return item.Mennyiseg;
+            }
+        }
+        return 0;
+    }*/
+
+    
+
+
+}
