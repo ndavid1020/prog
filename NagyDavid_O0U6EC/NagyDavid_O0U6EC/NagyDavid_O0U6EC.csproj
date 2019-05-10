@@ -50,7 +50,7 @@
     <Compile Include="Buza.cs" />
     <Compile Include="Gyumolcs.cs" />
     <Compile Include="Haszonallat.cs" />
-    <Compile Include="Haz.cs" />
+    <Compile Include="Kivetel.cs" />
     <Compile Include="LancoltLista.cs" />
     <Compile Include="Marha.cs" />
     <Compile Include="Program.cs" />

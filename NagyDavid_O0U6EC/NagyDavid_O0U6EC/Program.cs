@@ -13,7 +13,7 @@ namespace NagyDavid_O0U6EC
         {
             //Királyi raktár
             Termek[] raktar = new Termek[6];
-            /*
+            
             try
             {
                 string[] textRaktar = File.ReadAllLines("../../raktar1.txt");
@@ -27,22 +27,22 @@ namespace NagyDavid_O0U6EC
                     meret = textRaktar[i].Split(' ')[2];
                     switch (tipus)
                     {
-                        case "alma":
+                        case "Alma":
                             raktar[i] = new Alma(mertekegyseg, int.Parse(meret));
                             break;
-                        case "barack":
+                        case "Barack":
                             raktar[i] = new Barack(mertekegyseg, int.Parse(meret));
                             break;
-                        case "szena":
+                        case "Szena":
                             raktar[i] = new Szena(mertekegyseg, int.Parse(meret));
                             break;
-                        case "buza":
+                        case "Buza":
                             raktar[i] = new Buza(mertekegyseg, int.Parse(meret));
                             break;
-                        case "marha":
+                        case "Marha":
                             raktar[i] = new Marha(mertekegyseg, int.Parse(meret));
                             break;
-                        case "birka":
+                        case "Birka":
                             raktar[i] = new Birka(mertekegyseg, int.Parse(meret));
                             break;
                     }
@@ -56,14 +56,8 @@ namespace NagyDavid_O0U6EC
             {
                 Console.WriteLine(item);
             }
-            */
-            ///Teszt raktár
-            raktar[0] = new Alma("kg", 3);
-            raktar[1] = new Barack("kg", 5);
-            raktar[2] = new Buza("kg", 2);
-            raktar[4] = new Szena("kg", 1);
-            raktar[3] = new Birka("kg", 7);
-            raktar[5] = new Marha("kg", 20);
+            
+           
 
             int ossz = 0;
             for (int i = 0; i < raktar.Length; i++)
@@ -240,24 +234,23 @@ namespace NagyDavid_O0U6EC
             LancoltLista<Termek> Greyjoy = new LancoltLista<Termek>(greyjoy, 3, "Greyjoy");
             LancoltLista<Termek> Lannister = new LancoltLista<Termek>(lannister, 2, "Lannister");
             LancoltLista<Termek> Stark = new LancoltLista<Termek>(stark, 1, "Stark");
-            LancoltLista<Termek> Targaryen = new LancoltLista<Termek>(targaryen, 0, "Targaryen");
-            LancoltLista<Termek> Tully = new LancoltLista<Termek>(tully, 0, "Tully");
+            LancoltLista<Termek> Targaryen = new LancoltLista<Termek>(targaryen, 3, "Targaryen");
+            LancoltLista<Termek> Tully = new LancoltLista<Termek>(tully, 5, "Tully");
 
             
 
             Arryn.ElejereBeszuras(new Alma("kg", 0));
-            Arryn.ElejereBeszuras(new Barack("kg", 0));
             Arryn.ElejereBeszuras(new Szena("kg", 0));
             Greyjoy.ElejereBeszuras(new Barack("kg", 0));
-            Greyjoy.ElejereBeszuras(new Birka("kg", 0));
-            Lannister.ElejereBeszuras(new Birka("kg", 0));
+            Greyjoy.ElejereBeszuras(new Szena("kg", 0));
+            Lannister.ElejereBeszuras(new Szena("kg", 0));
+            Lannister.ElejereBeszuras(new Buza("kg", 0));
             Lannister.ElejereBeszuras(new Marha("kg", 0));
-            Stark.ElejereBeszuras(new Marha("kg", 0));
-            Stark.ElejereBeszuras(new Szena("kg", 0));
+            Stark.ElejereBeszuras(new Buza("kg", 0));
+            Targaryen.ElejereBeszuras(new Barack("kg", 0));
             Targaryen.ElejereBeszuras(new Szena("kg", 0));
-            Targaryen.ElejereBeszuras(new Buza("kg", 0));
-            Tully.ElejereBeszuras(new Buza("kg", 0));
-            Tully.ElejereBeszuras(new Alma("kg", 0));
+            Tully.ElejereBeszuras(new Birka("kg", 0));
+            Tully.ElejereBeszuras(new Marha("kg", 0));
 
 
             /*
@@ -370,6 +363,35 @@ namespace NagyDavid_O0U6EC
                             Console.Write(termekek[j]+" ");
                             raktar[s].Mennyiseg--;
                             item.prefmenny--;
+
+                            switch (raktar[s].Tipus)
+                            {
+                                case "Alma":
+                                    foreach (var a in item)
+                                        a.Plus(raktar[s].Tipus);
+                                    break;
+                                case "Barack":
+                                    foreach (var a in item)
+                                        a.Plus(raktar[s].Tipus);
+                                    break;
+                                case "Szena":
+                                    foreach (var a in item)
+                                        a.Plus(raktar[s].Tipus);
+                                    break;
+                                case "Buza":
+                                    foreach (var a in item)
+                                        a.Plus(raktar[s].Tipus);
+                                    break;
+                                case "Marha":
+                                    foreach (var a in item)
+                                        a.Plus(raktar[s].Tipus);
+                                    break;
+                                case "Birka":
+                                    foreach (var a in item)
+                                        a.Plus(raktar[s].Tipus);
+                                    break;
+                            }
+
                             tomb[k, j]++;
                         }
 
@@ -391,10 +413,24 @@ namespace NagyDavid_O0U6EC
             Console.WriteLine();
             Console.WriteLine("EREDMÉNY KEZDETE");
             Console.WriteLine();
-            if (van)
-                Console.WriteLine("VAN MEGOLDÁS");
-            else
-                Console.WriteLine("NINCS MEGOLDÁS");
+            try
+            {
+                if (van)
+                {
+                    Console.WriteLine("VAN MEGOLDÁS");
+                }
+
+                else
+                {
+                    Console.WriteLine("NINCS MEGOLDÁS");
+                    throw new Kivetel("Nem sikerült kiosztani");
+                }
+            }
+            catch(Kivetel p)
+            {
+                Console.WriteLine(p.Msg);
+            }
+                
             Console.WriteLine();
             for (int i = 0; i < termekek.Length; i++)
             {

@@ -1,6 +1,6 @@
-Alma mazsa 10
-Barack mazsa 5
-Szena boglya 105
-Buza mero 1
-Marha db 300
-Birka db 423
+Alma kg 4
+Barack kg 5
+Szena boglya 1
+Buza kg 2
+Marha db 20
+Birka db 7

@@ -10,5 +10,15 @@ namespace NagyDavid_O0U6EC
     {
         public int Mennyiseg { get; set; }
         public string Tipus { get; set; }
+
+
+        public void Plus(string Tipus)
+        {
+            if (Tipus == this.Tipus)
+            {
+                Mennyiseg += 1;
+            }
+            
+        }
     }
 }
